@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/a7a8d59961.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>MOTION</title>
+  </head>
+  <body>
+    <section class="container">
+      <header class="head">
+        <h1 class="logo">MOTION</h1>
+        <nav class="head__menu">
+          <button class="menu__btn">IMAGE</button>
+          <button class="menu__btn">VIDEO</button>
+          <button class="menu__btn">NOTE</button>
+          <button class="menu__btn">TASK</button>
+        </nav>
+      </header>
+      <section class="mainlist">
+        <div class="mainlist__img">
+          <img src="https://picsum.photos/300/200" alt="random__img" />
+          <span>imgae</span>
+          <button class="mainlist__deletebtn">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="mainlist__video">
+          <video src="https://youtu.be/n3RbhZt5cIw"></video>
+          <span>video</span>
+          <button class="mainlist__delete">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="mainlist__note">
+          <h2 class="mainlist__note__title">title</h2>
+          <span> Hello </span>
+          <button class="mainlist__delete">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="mainlist__todo">
+          <h2 class="todo__titile">Todo</h2>
+          <ul class="todo__items">
+            <li class="todo__item">doing something!</li>
+          </ul>
+          <button class="mainlist__delete">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </section>
+      <footer class="footer">
+        <span></span>
+      </footer>
+    </section>
+    <section class="popup">
+      <button class="popup__exitbtn">
+        <i class="fas fa-times"> </i>
+      </button>
+      <div class="pupup__title">
+        <h2>Title</h2>
+        <input type="text" class="popup__title__input" />
+      </div>
+      <div class="popup__url">
+        <h2>URL</h2>
+        <input type="text" class="popup__url__input" />
+      </div>
+      <button class="popup__addbtn">ADD</button>
+    </section>
+  </body>
+</html>

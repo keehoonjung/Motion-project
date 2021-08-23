@@ -1,0 +1,118 @@
+:root {
+  --bg-main-color: #00000080;
+  --bg-accent-color: #2d2d2d;
+  --accent-color: #f64435;
+  --text-accent-color: #ffe498;
+  --text-edit-bg-color: #575757;
+  --border-color: #3f3f3f;
+  --shadow-color: #202020;
+  --document-bg-color: #68686850;
+  --component-bg-gradient: radial-gradient(
+    circle,
+    #646464e6 0%,
+    #363636e6 100%
+  );
+  --smokywhite: #dddbd8;
+  --black: #000000;
+  --translucent-black: #00000099;
+
+  /* size */
+  --title-size: 40px;
+  --menu-size: 14px;
+  --semi-bold: 600;
+  --delete-btn: 20px;
+  --margin-item: 12px;
+  --item-title: 18px;
+}
+
+* {
+  font-family: "Source Sans Pro", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: center/cover no-repeat url("./img/background.png");
+  text-align: center;
+}
+
+h1 {
+  font-size: var(--title-size);
+}
+
+h2 {
+  font-size: var(--item-title);
+  font-weight: var(--semi-bold);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+.container {
+  width: 70%;
+  margin: auto;
+}
+
+.head {
+  background-color: var(--bg-main-color);
+  padding: 20px 0;
+}
+
+.logo {
+  margin: 0;
+  color: var(--accent-color);
+}
+
+.head__menu {
+  margin-top: 10px;
+}
+
+.menu__btn {
+  background-color: var(--accent-color);
+  color: var(--smokywhite);
+  padding: 10px 30px;
+  font-size: var(--menu-size);
+  font-weight: var(--semi-bold);
+  margin-right: 3px;
+}
+
+.mainlist {
+  background-color: var(--document-bg-color);
+}
+
+.mainlist__item {
+  border: 2px solid var(--border-color);
+  background-color: var(--text-edit-bg-color);
+  width: 80%;
+  margin: auto;
+  display: flex;
+  margin-top: var(--margin-item);
+}
+
+.mainlist__title {
+  display: block;
+  width: 45%;
+  color: var(--text-accent-color);
+  text-align: left;
+  padding-left: var(--margin-item);
+}
+
+.mainlist__deletebtn {
+  background: none;
+  color: var(--accent-color);
+  font-size: var(--delete-btn);
+}
+
+.mainlist__text {
+  border: 2px solid var(--border-color);
+  background-color: var(--text-edit-bg-color);
+  width: 80%;
+  margin: auto;
+  display: flex;
+  margin-top: var(--margin-item);
+}

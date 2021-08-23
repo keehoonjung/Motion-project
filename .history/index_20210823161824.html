@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/a7a8d59961.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>MOTION</title>
+  </head>
+  <body>
+    <section class="container">
+      <header class="head">
+        <h1 class="logo">MOTION</h1>
+        <nav class="head__menu">
+          <button class="menu__btn">IMAGE</button>
+          <button class="menu__btn">VIDEO</button>
+          <button class="menu__btn">NOTE</button>
+          <button class="menu__btn">TASK</button>
+        </nav>
+      </header>
+      <section class="mainlist">
+        <div class="mainlist__item">
+          <img src="https://picsum.photos/400/250" alt="random__img" />
+          <h2 class="mainlist__title">Image</h2>
+          <button class="mainlist__deletebtn">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="mainlist__item">
+          <iframe
+            width="400"
+            height="250"
+            src="https://www.youtube.com/embed/tvFjaz8dYn0"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <h2 class="mainlist__title">Video</h2>
+          <button class="mainlist__deletebtn">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="mainlist__text">
+          <h2 class="mainlist__text__title">Title</h2>
+          <span> Hello </span>
+          <button class="mainlist__deletebtn">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="mainlist__text">
+          <h2 class="mainlist__text__title">Todo</h2>
+          <ul class="todo__items">
+            <li class="todo__item">
+              <span>doing something!</span>
+            </li>
+          </ul>
+          <button class="mainlist__deletebtn">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </section>
+      <footer class="footer">
+        <span></span>
+      </footer>
+    </section>
+    <section class="popup">
+      <button class="popup__exitbtn">
+        <i class="fas fa-times"> </i>
+      </button>
+      <div class="pupup__title">
+        <h2>Title</h2>
+        <input type="text" class="popup__title__input" />
+      </div>
+      <div class="popup__url">
+        <h2>URL</h2>
+        <input type="text" class="popup__url__input" />
+      </div>
+      <button class="popup__addbtn">ADD</button>
+    </section>
+  </body>
+</html>
