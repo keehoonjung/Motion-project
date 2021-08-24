@@ -3,10 +3,7 @@ interface CreateItem {
 }
 
 interface POPUP {
-  url: string;
-  title: string;
-  name: string;
-  openPopup(name: string, type: string): void;
+  openPopup(name: string): void;
   exitPopup(): void;
 }
 
@@ -106,55 +103,40 @@ class PopupImpl implements POPUP {
   darkcontainer = document.querySelector(".darkcontainer");
   urlInput = document.querySelector(".popup__item__input");
   titleInput = document.querySelector(".popup__title__input");
-  popupText = document.querySelector(".popup__url__text");
-
-  constructor() {
-    this.popup?.addEventListener("click", (event) => {
-      const target = event.target;
-      const title = this.titleInput.value;
-      const url = this.urlInput.value;
-      const name = this.popup.dataset.name;
-
-      if (target?.classList.value == "fas fa-times") {
-        this.exitPopup();
-      } else if (target?.classList.value === "popup__addbtn") {
-        Create.createItem(name, title, url);
-        this.exitPopup();
-      }
-    });
-  }
-
-  openPopup(name: string, type: string) {
-    this.popup?.classList.add("visible");
-    this.darkcontainer?.classList.add("visible");
-    this.popup?.setAttribute("data-name", name);
-    switch (type) {
-      case "item":
-        this.popupText!.textContent = "URL";
-        break;
-      case "text":
-        this.popupText!.textContent = "Body";
-        break;
-    }
-  }
-
-  exitPopup() {
-    this.titleInput.value = "";
-    this.urlInput.value = "";
-    this.darkcontainer?.classList.remove("visible");
-    this.popup?.classList.remove("visible");
-    this.popup?.removeAttribute("data-name");
-  }
 }
 
 const mainMenu = document.querySelector(".head__menu");
+const body = document.querySelector("body");
 
 const Create = new CreateItemImpl();
-const Popup = new PopupImpl();
 
 mainMenu?.addEventListener("click", (event) => {
   const target = event.target;
-  const type: string = target.dataset.type;
   const name: string = target.dataset.name;
-  Popup.openPopup(name, type);
+  openPopup(name);
 });
+
+popup?.addEventListener("click", (event) => {
+  const target = event.target;
+  const name = popup.dataset.name;
+  if (target?.classList.value == "fas fa-times") {
+    exitPopup();
+  } else if (target?.classList.value === "popup__addbtn") {
+    Create.createItem(name);
+    exitPopup();
+  }
+});
+
+function openPopup(name: string) {
+  popup?.classList.add("visible");
+  darkcontainer?.classList.add("visible");
+  popup?.setAttribute("data-name", name);
+}
+
+function exitPopup() {
+  titleInput.value = "";
+  urlInput.value = "";
+  darkcontainer?.classList.remove("visible");
+  popup?.classList.remove("visible");
+  popup?.removeAttribute("data-name");
+}

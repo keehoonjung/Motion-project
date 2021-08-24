@@ -1,115 +1,109 @@
 "use strict";
-const mainMenu = document.querySelector(".head__menu");
-const popup = document.querySelector(".popup");
-const darkcontainer = document.querySelector(".darkcontainer");
-const body = document.querySelector("body");
-const mainlist = document.querySelector(".mainlist");
-const urlInput = document.querySelector(".popup__item__input");
-const titleInput = document.querySelector(".popup__title__input");
-mainMenu === null || mainMenu === void 0 ? void 0 : mainMenu.addEventListener("click", (event) => {
-    const target = event.target;
-    const name = target.dataset.name;
-    popup === null || popup === void 0 ? void 0 : popup.classList.add("visible");
-    darkcontainer === null || darkcontainer === void 0 ? void 0 : darkcontainer.classList.add("visible");
-    popup === null || popup === void 0 ? void 0 : popup.setAttribute("data-name", name);
-});
-popup === null || popup === void 0 ? void 0 : popup.addEventListener("click", (event) => {
-    const target = event.target;
-    const name = popup.dataset.name;
-    if ((target === null || target === void 0 ? void 0 : target.classList.value) == "fas fa-times") {
-        exitPopup();
+var CreateItemImpl = /** @class */ (function () {
+    function CreateItemImpl() {
+        var _this = this;
+        var _a;
+        this.mainlist = document.querySelector(".mainlist");
+        (_a = this.mainlist) === null || _a === void 0 ? void 0 : _a.addEventListener("click", function (event) {
+            var target = event.target;
+            _this.deleteItem(target);
+        });
     }
-    else if ((target === null || target === void 0 ? void 0 : target.classList.value) === "popup__addbtn") {
+    CreateItemImpl.prototype.createItem = function (name, title, url) {
+        var _a;
+        var item = document.createElement("div");
         switch (name) {
             case "image":
-                createImageItem(titleInput === null || titleInput === void 0 ? void 0 : titleInput.value, urlInput === null || urlInput === void 0 ? void 0 : urlInput.value);
+                this.createImageItem(title, url, item);
                 break;
             case "video":
-                createVideoItem(titleInput === null || titleInput === void 0 ? void 0 : titleInput.value, urlInput === null || urlInput === void 0 ? void 0 : urlInput.value);
+                this.createVideoItem(title, url, item);
                 break;
             case "note":
-                createNoteItem(titleInput === null || titleInput === void 0 ? void 0 : titleInput.value, urlInput === null || urlInput === void 0 ? void 0 : urlInput.value);
+                this.createNoteItem(title, url, item);
                 break;
             case "todo":
-                createTodoItem(titleInput === null || titleInput === void 0 ? void 0 : titleInput.value, urlInput === null || urlInput === void 0 ? void 0 : urlInput.value);
+                this.createTodoItem(title, url, item);
                 break;
         }
-        titleInput.value = "";
-        urlInput.value = "";
-        exitPopup();
+        (_a = this.mainlist) === null || _a === void 0 ? void 0 : _a.appendChild(item);
+    };
+    CreateItemImpl.prototype.createImageItem = function (title, url, item) {
+        item.setAttribute("class", "mainlist__item");
+        item.innerHTML = "\n    <img src=" + url + " alt=\"random__img\" />\n    <h2 class=\"mainlist__title\">" + title + "</h2>\n    <button class=\"mainlist__deletebtn\">\n      <i class=\"fas fa-times\"></i>\n    </button>\n    ";
+    };
+    CreateItemImpl.prototype.createVideoItem = function (title, url, item) {
+        item.setAttribute("class", "mainlist__item");
+        item.innerHTML = "\n    <iframe\n    width=\"400\"\n    height=\"250\"\n    src=" + url + "\n    title=\"YouTube video player\"\n    frameborder=\"0\"\n    allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\"\n    allowfullscreen\n  ></iframe>\n  <h2 class=\"mainlist__title\">" + title + "</h2>\n  <button class=\"mainlist__deletebtn\">\n    <i class=\"fas fa-times\"></i>\n  </button>\n      ";
+    };
+    CreateItemImpl.prototype.createNoteItem = function (title, text, item) {
+        item.setAttribute("class", "mainlist__text");
+        item.innerHTML = "\n    <h2 class=\"mainlist__text__title\">" + title + "</h2>\n    <span> " + text + " </span>\n    <button class=\"mainlist__deletebtn\">\n      <i class=\"fas fa-times\"></i>\n    </button>\n      ";
+    };
+    CreateItemImpl.prototype.createTodoItem = function (title, text, item) {
+        item.setAttribute("class", "mainlist__text");
+        item.innerHTML = "\n      <h2 class=\"mainlist__text__title\">" + title + "</h2>\n      <ul class=\"todo__items\">\n        <li class=\"todo__item\">\n          <span>" + text + "</span>\n        </li>\n      </ul>\n      <button class=\"mainlist__deletebtn\">\n        <i class=\"fas fa-times\"></i>\n      </button>\n        ";
+    };
+    CreateItemImpl.prototype.deleteItem = function (target) {
+        if ((target === null || target === void 0 ? void 0 : target.classList.value) == "fas fa-times") {
+            target.parentNode.parentNode.remove();
+        }
+    };
+    return CreateItemImpl;
+}());
+var PopupImpl = /** @class */ (function () {
+    function PopupImpl() {
+        var _this = this;
+        var _a;
+        this.popup = document.querySelector(".popup");
+        this.darkcontainer = document.querySelector(".darkcontainer");
+        this.urlInput = document.querySelector(".popup__item__input");
+        this.titleInput = document.querySelector(".popup__title__input");
+        this.popupText = document.querySelector(".popup__url__text");
+        (_a = this.popup) === null || _a === void 0 ? void 0 : _a.addEventListener("click", function (event) {
+            var target = event.target;
+            var title = _this.titleInput.value;
+            var url = _this.urlInput.value;
+            var name = _this.popup.dataset.name;
+            if ((target === null || target === void 0 ? void 0 : target.classList.value) == "fas fa-times") {
+                _this.exitPopup();
+            }
+            else if ((target === null || target === void 0 ? void 0 : target.classList.value) === "popup__addbtn") {
+                Create.createItem(name, title, url);
+                _this.exitPopup();
+            }
+        });
     }
+    PopupImpl.prototype.openPopup = function (name, type) {
+        var _a, _b, _c;
+        (_a = this.popup) === null || _a === void 0 ? void 0 : _a.classList.add("visible");
+        (_b = this.darkcontainer) === null || _b === void 0 ? void 0 : _b.classList.add("visible");
+        (_c = this.popup) === null || _c === void 0 ? void 0 : _c.setAttribute("data-name", name);
+        switch (type) {
+            case "item":
+                this.popupText.textContent = "URL";
+                break;
+            case "text":
+                this.popupText.textContent = "Body";
+                break;
+        }
+    };
+    PopupImpl.prototype.exitPopup = function () {
+        var _a, _b, _c;
+        this.titleInput.value = "";
+        this.urlInput.value = "";
+        (_a = this.darkcontainer) === null || _a === void 0 ? void 0 : _a.classList.remove("visible");
+        (_b = this.popup) === null || _b === void 0 ? void 0 : _b.classList.remove("visible");
+        (_c = this.popup) === null || _c === void 0 ? void 0 : _c.removeAttribute("data-name");
+    };
+    return PopupImpl;
+}());
+var mainMenu = document.querySelector(".head__menu");
+var Create = new CreateItemImpl();
+var Popup = new PopupImpl();
+mainMenu === null || mainMenu === void 0 ? void 0 : mainMenu.addEventListener("click", function (event) {
+    var target = event.target;
+    var type = target.dataset.type;
+    var name = target.dataset.name;
+    Popup.openPopup(name, type);
 });
-mainlist === null || mainlist === void 0 ? void 0 : mainlist.addEventListener("click", (event) => {
-    const target = event.target;
-    deleteItem(target);
-});
-function createImageItem(title, url) {
-    const item = document.createElement("div");
-    item.setAttribute("class", "mainlist__item");
-    item.innerHTML = `
-  <img src=${url} alt="random__img" />
-  <h2 class="mainlist__title">${title}</h2>
-  <button class="mainlist__deletebtn">
-    <i class="fas fa-times"></i>
-  </button>
-  `;
-    mainlist === null || mainlist === void 0 ? void 0 : mainlist.appendChild(item);
-}
-function createVideoItem(title, url) {
-    const item = document.createElement("div");
-    item.setAttribute("class", "mainlist__item");
-    item.innerHTML = `
-  <iframe
-  width="400"
-  height="250"
-  src=${url}
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-></iframe>
-<h2 class="mainlist__title">${title}</h2>
-<button class="mainlist__deletebtn">
-  <i class="fas fa-times"></i>
-</button>
-    `;
-    mainlist === null || mainlist === void 0 ? void 0 : mainlist.appendChild(item);
-}
-function createNoteItem(title, text) {
-    const item = document.createElement("div");
-    item.setAttribute("class", "mainlist__text");
-    item.innerHTML = `
-  <h2 class="mainlist__text__title">${title}</h2>
-  <span> ${text} </span>
-  <button class="mainlist__deletebtn">
-    <i class="fas fa-times"></i>
-  </button>
-    `;
-    mainlist === null || mainlist === void 0 ? void 0 : mainlist.appendChild(item);
-}
-function createTodoItem(title, text) {
-    const item = document.createElement("div");
-    item.setAttribute("class", "mainlist__text");
-    item.innerHTML = `
-    <h2 class="mainlist__text__title">${title}</h2>
-    <ul class="todo__items">
-      <li class="todo__item">
-        <span>${text}</span>
-      </li>
-    </ul>
-    <button class="mainlist__deletebtn">
-      <i class="fas fa-times"></i>
-    </button>
-      `;
-    mainlist === null || mainlist === void 0 ? void 0 : mainlist.appendChild(item);
-}
-function exitPopup() {
-    darkcontainer === null || darkcontainer === void 0 ? void 0 : darkcontainer.classList.remove("visible");
-    popup === null || popup === void 0 ? void 0 : popup.classList.remove("visible");
-    popup === null || popup === void 0 ? void 0 : popup.removeAttribute("data-name");
-}
-function deleteItem(target) {
-    if ((target === null || target === void 0 ? void 0 : target.classList.value) == "fas fa-times") {
-        target.parentNode.parentNode.remove();
-    }
-}

@@ -6,7 +6,7 @@ interface POPUP {
   url: string;
   title: string;
   name: string;
-  openPopup(name: string, type: string): void;
+  openPopup(name: string): void;
   exitPopup(): void;
 }
 
@@ -130,11 +130,9 @@ class PopupImpl implements POPUP {
     this.popup?.setAttribute("data-name", name);
     switch (type) {
       case "item":
-        this.popupText!.textContent = "URL";
+        this.popupText?.textContent = "URL";
         break;
-      case "text":
-        this.popupText!.textContent = "Body";
-        break;
+        case: "text":
     }
   }
 

@@ -6,7 +6,7 @@ interface POPUP {
   url: string;
   title: string;
   name: string;
-  openPopup(name: string, type: string): void;
+  openPopup(name: string): void;
   exitPopup(): void;
 }
 
@@ -133,7 +133,7 @@ class PopupImpl implements POPUP {
         this.popupText!.textContent = "URL";
         break;
       case "text":
-        this.popupText!.textContent = "Body";
+        this.popupText!.textContent = "BODY";
         break;
     }
   }

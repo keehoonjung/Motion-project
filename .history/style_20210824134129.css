@@ -199,8 +199,7 @@ button {
   padding: 0 10px;
 }
 
-.popup__title__text,
-.popup__url__text {
+.popup__text {
   margin: 0;
   text-align: left;
 }

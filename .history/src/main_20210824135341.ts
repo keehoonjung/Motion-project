@@ -6,7 +6,7 @@ interface POPUP {
   url: string;
   title: string;
   name: string;
-  openPopup(name: string, type: string): void;
+  openPopup(name: string): void;
   exitPopup(): void;
 }
 
@@ -124,18 +124,11 @@ class PopupImpl implements POPUP {
     });
   }
 
-  openPopup(name: string, type: string) {
+  openPopup(name: string) {
     this.popup?.classList.add("visible");
     this.darkcontainer?.classList.add("visible");
     this.popup?.setAttribute("data-name", name);
-    switch (type) {
-      case "item":
-        this.popupText!.textContent = "URL";
-        break;
-      case "text":
-        this.popupText!.textContent = "Body";
-        break;
-    }
+    switch
   }
 
   exitPopup() {
@@ -154,7 +147,7 @@ const Popup = new PopupImpl();
 
 mainMenu?.addEventListener("click", (event) => {
   const target = event.target;
-  const type: string = target.dataset.type;
+  const type = target.dataset.type;
   const name: string = target.dataset.name;
-  Popup.openPopup(name, type);
+  Popup.openPopup(name);
 });

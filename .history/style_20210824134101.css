@@ -81,7 +81,7 @@ button {
 }
 
 .container {
-  width: 70%;
+  width: 1000px;
   margin: auto;
   border-radius: var(--border-radius);
 }
@@ -199,8 +199,7 @@ button {
   padding: 0 10px;
 }
 
-.popup__title__text,
-.popup__url__text {
+.popup__text {
   margin: 0;
   text-align: left;
 }

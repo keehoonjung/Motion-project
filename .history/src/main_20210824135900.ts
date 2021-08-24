@@ -133,7 +133,7 @@ class PopupImpl implements POPUP {
         this.popupText!.textContent = "URL";
         break;
       case "text":
-        this.popupText!.textContent = "Body";
+        this.popupText!.textContent = "BODY";
         break;
     }
   }
