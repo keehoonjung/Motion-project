@@ -38,8 +38,7 @@
 body {
   background: center/cover no-repeat url("./img/background.png");
   text-align: center;
-  overflow: hidden;
-  height: 100vh;
+  height: 100%;
   margin: 0;
 }
 
@@ -118,8 +117,8 @@ button {
 
 .mainlist {
   background-color: var(--document-bg-color);
-  overflow-y: auto;
-  height: 87%;
+  overflow-y: scroll;
+  height: 100%;
 }
 
 .mainlist::-webkit-scrollbar {

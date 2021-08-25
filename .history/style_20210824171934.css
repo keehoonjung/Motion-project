@@ -119,7 +119,7 @@ button {
 .mainlist {
   background-color: var(--document-bg-color);
   overflow-y: auto;
-  height: 87%;
+  height: 100%;
 }
 
 .mainlist::-webkit-scrollbar {
