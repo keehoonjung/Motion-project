@@ -72,6 +72,10 @@ span {
   font-size: 18px;
 }
 
+ul {
+  list-style: none;
+}
+
 button {
   border: none;
   outline: none;
@@ -103,7 +107,6 @@ button {
 }
 
 .menu__btn {
-  list-style: none;
   background-color: var(--accent-color);
   color: var(--smokywhite);
   padding: 10px 30px;

@@ -19,7 +19,7 @@ class App {
 
     const video = new VideoComponent(
       "video title",
-      "https://youtu.be/c9RzZpV460k"
+      "https://www.youtube.com/watch?v=c9RzZpV460k"
     );
 
     video.attachTo(appRoot, "beforeend");

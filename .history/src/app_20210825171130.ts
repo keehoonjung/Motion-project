@@ -1,5 +1,5 @@
 import { ImageComponent } from "./components/page/item/image.js";
-import { TextComponent } from "./components/page/item/note.js";
+import { TextComponent } from "./components/page/item/text.js";
 import { TodoComponent } from "./components/page/item/todo.js";
 import { VideoComponent } from "./components/page/item/video.js";
 import { PageComponets } from "./components/page/page.js";
@@ -19,7 +19,7 @@ class App {
 
     const video = new VideoComponent(
       "video title",
-      "https://youtu.be/c9RzZpV460k"
+      "https://www.youtube.com/embed/c9RzZpV460k"
     );
 
     video.attachTo(appRoot, "beforeend");
@@ -27,8 +27,8 @@ class App {
     const todo = new TodoComponent("Todo LIst", "doing something");
     todo.attachTo(appRoot, "beforeend");
 
-    const note = new TextComponent("Text", "Hello man!");
-    note.attachTo(appRoot, "beforeend");
+    const textItem = new TextComponent("Text", "Hello man!");
+    textItem.attachTo(appRoot, "beforeend");
   }
 }
 

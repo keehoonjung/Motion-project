@@ -19,7 +19,7 @@ class App {
 
     const video = new VideoComponent(
       "video title",
-      "https://youtu.be/c9RzZpV460k"
+      "https://www.youtube.com/embed/c9RzZpV460k"
     );
 
     video.attachTo(appRoot, "beforeend");
@@ -33,3 +33,8 @@ class App {
 }
 
 new App(document.querySelector(".mainlist")! as HTMLElement);
+
+const add = "https://www.youtube.com/watch?v=LluP7Yk7MLk";
+console.log(add.split("="));
+const newadd = add.split("=");
+console.log(newadd[-1]);
