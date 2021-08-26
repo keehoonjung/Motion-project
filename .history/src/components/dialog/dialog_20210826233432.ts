@@ -9,11 +9,6 @@ export interface MediaData {
   readonly url: string;
 }
 
-export interface TextData {
-  readonly title: string;
-  readonly body: string;
-}
-
 export class DialogComponent
   extends BaseComponent<HTMLElement>
   implements Composer
@@ -58,6 +53,8 @@ export class DialogComponent
     const container = this.element.querySelector(
       "#dialog__body"
     )! as HTMLElement;
+    console.log(container);
+
     child.attachTo(container, "afterbegin");
   }
 }

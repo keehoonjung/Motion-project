@@ -13,7 +13,7 @@ import {
 
 class App {
   private readonly page: Component & Composer;
-  constructor(appRoot: HTMLElement, private dialogroot: HTMLElement) {
+  constructor(appRoot: HTMLElement, dialogroot: HTMLElement) {
     this.page = new PageComponets(PageItemComponent);
     this.page.attachTo(appRoot);
 
@@ -37,7 +37,7 @@ class App {
     dialog.addchild(dialogInput);
 
     dialog.SetOnCloseListner(() => {
-      dialog.removeFrom(this.dialogroot);
+      dialog.removeFrom(document.body);
     });
     dialog.SetOnSubmitListner(() => {
       const title = dialogInput.submitTitleInputValue();
@@ -60,10 +60,10 @@ class App {
           this.page.addchild(note);
           break;
       }
-      dialog.removeFrom(this.dialogroot);
+      dialog.removeFrom(document.body);
     });
-    dialog.attachTo(this.dialogroot);
+    dialog.attachTo(document.body);
   }
 }
 
-new App(document.querySelector(".mainlist")! as HTMLElement, document.body);
+new App(document.querySelector(".mainlist")! as HTMLElement);

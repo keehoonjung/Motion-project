@@ -37,7 +37,7 @@ class App {
     dialog.addchild(dialogInput);
 
     dialog.SetOnCloseListner(() => {
-      dialog.removeFrom(this.dialogroot);
+      dialog.removeFrom(dialogroot);
     });
     dialog.SetOnSubmitListner(() => {
       const title = dialogInput.submitTitleInputValue();
@@ -60,9 +60,9 @@ class App {
           this.page.addchild(note);
           break;
       }
-      dialog.removeFrom(this.dialogroot);
+      dialog.removeFrom(dialogroot);
     });
-    dialog.attachTo(this.dialogroot);
+    dialog.attachTo(dialogroot);
   }
 }
 
