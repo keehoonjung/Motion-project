@@ -17,7 +17,7 @@ export class DialogComponent
             <button class="close">
                 <i class="fas fa-times"> </i>
             </button>
-            <div id="dialog__body"></div>
+            <body id="dialog__body"></body>
             <button class="popup__submit">ADD</button>
           </div>
         </section>
@@ -46,10 +46,8 @@ export class DialogComponent
 
   addchild(child: Component) {
     const container = this.element.querySelector(
-      "#dialog__body"
+      "#dilog__body"
     )! as HTMLElement;
-    console.log(container);
-
-    child.attachTo(container, "afterbegin");
+    console.log(child);
   }
 }

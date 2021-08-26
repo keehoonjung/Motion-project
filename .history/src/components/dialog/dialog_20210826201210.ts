@@ -17,7 +17,7 @@ export class DialogComponent
             <button class="close">
                 <i class="fas fa-times"> </i>
             </button>
-            <div id="dialog__body"></div>
+            <body id="dialog__body"></body>
             <button class="popup__submit">ADD</button>
           </div>
         </section>

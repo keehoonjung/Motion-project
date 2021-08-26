@@ -100,6 +100,11 @@ button {
   font-weight: var(--semi-bold);
   border-radius: var(--menu-border-radius);
   margin-right: 3px;
+  transition: transform var(--transition-duration) ease-in;
+}
+
+.menu__btn:hover {
+  transform: scale(1.1);
 }
 
 .mainlist {
@@ -149,11 +154,6 @@ button {
   width: 45%;
   text-align: left;
   padding-left: var(--margin-item);
-}
-
-.video__thumbnail {
-  border: none;
-  outline: none;
 }
 
 .page .close {

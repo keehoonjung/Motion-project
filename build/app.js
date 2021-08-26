@@ -1,4 +1,5 @@
 import { DialogComponent } from "./components/dialog/dialog.js";
+import { DialogInputItem } from "./components/dialog/input/inputitem.js";
 import { ImageComponent } from "./components/page/item/image.js";
 import { TextComponent } from "./components/page/item/note.js";
 import { TodoComponent } from "./components/page/item/todo.js";
@@ -8,25 +9,47 @@ class App {
     constructor(appRoot) {
         this.page = new PageComponets(PageItemComponent);
         this.page.attachTo(appRoot);
-        const image = new ImageComponent("image Title", "https://picsum.photos/200/300");
-        this.page.addchild(image);
-        const video = new VideoComponent("video title", "https://youtu.be/c9RzZpV460k");
-        this.page.addchild(video);
-        const todo = new TodoComponent("Todo LIst", "doing something");
-        this.page.addchild(todo);
-        const note = new TextComponent("Text", "Hello man!");
-        this.page.addchild(note);
-        const imageBtn = document.querySelector("button[data-name='image']");
-        imageBtn.addEventListener("click", () => {
-            const dialog = new DialogComponent();
-            dialog.SetOnCloseListner(() => {
-                dialog.removeFrom(document.body);
-            });
-            dialog.SetOnSubmitListner(() => {
-                dialog.removeFrom(document.body);
-            });
-            dialog.attachTo(document.body);
+        const headMenu = document.querySelector(".head__menu");
+        headMenu.addEventListener("click", (event) => {
+            const target = event.target;
+            if (target.tagName == "BUTTON") {
+                this.bindElementToDialog(target);
+            }
         });
+    }
+    bindElementToDialog(target) {
+        const type = target.dataset["type"];
+        const name = target.dataset["name"];
+        const dialog = new DialogComponent();
+        const dialogInput = new DialogInputItem("Title", type);
+        dialog.addchild(dialogInput);
+        dialog.SetOnCloseListner(() => {
+            dialog.removeFrom(document.body);
+        });
+        dialog.SetOnSubmitListner(() => {
+            const title = dialogInput.submitTitleInputValue();
+            const item = dialogInput.submitItemInputValue();
+            switch (name) {
+                case "image":
+                    const image = new ImageComponent(title, item);
+                    this.page.addchild(image);
+                    break;
+                case "video":
+                    const video = new VideoComponent(title, item);
+                    this.page.addchild(video);
+                    break;
+                case "todo":
+                    const todo = new TodoComponent(title, item);
+                    this.page.addchild(todo);
+                    break;
+                case "note":
+                    const note = new TextComponent(title, item);
+                    this.page.addchild(note);
+                    break;
+            }
+            dialog.removeFrom(document.body);
+        });
+        dialog.attachTo(document.body);
     }
 }
 new App(document.querySelector(".mainlist"));

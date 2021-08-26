@@ -102,6 +102,10 @@ button {
   margin-right: 3px;
 }
 
+.menu__btn :hover {
+  transform: scale(1.1);
+}
+
 .mainlist {
   background-color: var(--document-bg-color);
   overflow-y: auto;
@@ -149,11 +153,6 @@ button {
   width: 45%;
   text-align: left;
   padding-left: var(--margin-item);
-}
-
-.video__thumbnail {
-  border: none;
-  outline: none;
 }
 
 .page .close {

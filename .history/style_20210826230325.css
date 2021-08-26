@@ -28,7 +28,6 @@
   --menu-border-radius: 2px;
   --input-title-font: 24px;
   --input-item-font: 18px;
-  --transition-duration: 160ms;
 }
 
 * {
@@ -60,6 +59,11 @@ h2 {
   font-size: var(--item-title);
   font-weight: var(--semi-bold);
   color: var(--text-accent-color);
+}
+
+span {
+  color: var(--smokywhite);
+  font-size: 18px;
 }
 
 button {
@@ -121,13 +125,8 @@ button {
   padding: 0;
 }
 
-.page-item__body {
-  width: 100%;
-}
-
 .page-item {
   display: flex;
-  position: relative;
   justify-content: center;
   width: 80%;
   border: 2px solid var(--border-color);
@@ -138,44 +137,54 @@ button {
   box-shadow: 3px 3px 8px 2px var(--shadow-color);
 }
 
-.image__holder,
-.video__holder {
+.image__holder {
   display: flex;
   width: 100%;
 }
 
-.image__title,
-.video__title {
+.mainlist__item {
+  position: relative;
+  border: 2px solid var(--border-color);
+  background-color: var(--text-edit-bg-color);
+  background: var(--component-bg-gradient);
+  width: 80%;
+  margin: auto;
+  display: flex;
+  margin-top: var(--margin-item);
+  box-shadow: 3px 3px 8px 2px var(--shadow-color);
+}
+
+.mainlist__title {
   width: 45%;
   text-align: left;
   padding-left: var(--margin-item);
 }
 
-.video__thumbnail {
-  border: none;
-  outline: none;
-}
-
-.page .close {
+.mainlist__deletebtn {
   background: none;
   position: absolute;
   right: 8px;
   top: 43%;
   color: var(--accent-color);
   font-size: var(--delete-btn);
-  transition: transform var(--transition-duration) ease-in;
 }
 
-.page .close:hover {
-  transform: scale(1.2);
+.mainlist__text {
+  position: relative;
+  border: 2px solid var(--border-color);
+  background-color: var(--text-edit-bg-color);
+  background: var(--component-bg-gradient);
+  width: 80%;
+  margin: auto;
+  margin-top: var(--margin-item);
+  text-align: left;
+  padding: var(--margin-item);
+  box-shadow: 3px 3px 8px 2px var(--shadow-color);
 }
 
-.note,
-.todo {
+.todo__item {
+  list-style: square;
   color: var(--smokywhite);
-  font-size: var(--input-item-font);
-  text-align: start;
-  padding-left: var(--item-padding);
 }
 
 .footer {
@@ -205,6 +214,10 @@ button {
   border-radius: var(--border-radius);
   width: 600px;
   background: #57575770 var(--component-bg-gradient);
+}
+
+.popup.visible {
+  display: block;
 }
 
 .popup .close {

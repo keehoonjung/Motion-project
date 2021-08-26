@@ -28,7 +28,6 @@
   --menu-border-radius: 2px;
   --input-title-font: 24px;
   --input-item-font: 18px;
-  --transition-duration: 160ms;
 }
 
 * {
@@ -60,6 +59,11 @@ h2 {
   font-size: var(--item-title);
   font-weight: var(--semi-bold);
   color: var(--text-accent-color);
+}
+
+span {
+  color: var(--smokywhite);
+  font-size: 18px;
 }
 
 button {
@@ -151,11 +155,6 @@ button {
   padding-left: var(--margin-item);
 }
 
-.video__thumbnail {
-  border: none;
-  outline: none;
-}
-
 .page .close {
   background: none;
   position: absolute;
@@ -163,19 +162,17 @@ button {
   top: 43%;
   color: var(--accent-color);
   font-size: var(--delete-btn);
-  transition: transform var(--transition-duration) ease-in;
-}
-
-.page .close:hover {
-  transform: scale(1.2);
 }
 
 .note,
 .todo {
-  color: var(--smokywhite);
-  font-size: var(--input-item-font);
   text-align: start;
   padding-left: var(--item-padding);
+}
+
+.note__body,
+.todo__checkbox {
+  color: var(--smokywhite);
 }
 
 .footer {
@@ -205,6 +202,10 @@ button {
   border-radius: var(--border-radius);
   width: 600px;
   background: #57575770 var(--component-bg-gradient);
+}
+
+.popup.visible {
+  display: block;
 }
 
 .popup .close {
