@@ -1,9 +1,5 @@
 import { Component } from "./components/base.js";
-import {
-  DialogComponent,
-  MediaData,
-  TextData,
-} from "./components/dialog/dialog.js";
+import { DialogComponent } from "./components/dialog/dialog.js";
 import { MediaSectionInput } from "./components/dialog/input/media-input.js";
 import { TextSectionInput } from "./components/dialog/input/text-input.js";
 import { ImageComponent } from "./components/page/item/image.js";
@@ -16,7 +12,7 @@ import {
   PageItemComponent,
 } from "./components/page/page.js";
 
-type InputComponentConstructor<T = (MediaData | TextData) & Component> = {
+type InputComponentConstructor<T = MediaSectionInput | TextSectionInput> = {
   new (): T;
 };
 class App {
@@ -30,27 +26,9 @@ class App {
       MediaSectionInput,
       (input: MediaSectionInput) => new ImageComponent(input.title, input.url)
     );
-
-    this.bindElementToDialog<MediaSectionInput>(
-      "#new-video",
-      MediaSectionInput,
-      (input: MediaSectionInput) => new VideoComponent(input.title, input.url)
-    );
-
-    this.bindElementToDialog<TextSectionInput>(
-      "#new-todo",
-      TextSectionInput,
-      (input: TextSectionInput) => new TodoComponent(input.title, input.body)
-    );
-
-    this.bindElementToDialog<TextSectionInput>(
-      "#new-note",
-      TextSectionInput,
-      (input: TextSectionInput) => new TextComponent(input.title, input.body)
-    );
   }
 
-  bindElementToDialog<T extends (MediaData | TextData) & Component>(
+  bindElementToDialog<T extends MediaSectionInput | TextSectionInput>(
     sector: string,
     InputComponent: InputComponentConstructor<T>,
     makeSection: (input: T) => Component

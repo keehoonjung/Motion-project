@@ -14,7 +14,7 @@ export class TextSectionInput
               </div>
             <div class="form__container">
                 <h2 class="popup__item__text">Body</h2>
-                <textarea type="text" row="3" id="body"></textarea>
+                <textarea type="text" row="3" id="body" />
             </div>
           </div>
         `);

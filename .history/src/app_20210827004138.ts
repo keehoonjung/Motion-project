@@ -16,7 +16,7 @@ import {
   PageItemComponent,
 } from "./components/page/page.js";
 
-type InputComponentConstructor<T = (MediaData | TextData) & Component> = {
+type InputComponentConstructor<T = MediaSectionInput | TextSectionInput> = {
   new (): T;
 };
 class App {

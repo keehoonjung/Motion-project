@@ -208,20 +208,20 @@ button {
 }
 
 .popup .close {
-  align-self: flex-end;
-  padding-top: 16px;
+  width: 100%;
+  padding: 8px 15px;
   text-align: right;
   background-color: transparent;
   color: var(--accent-color);
   font-size: var(--delete-btn);
 }
 
-.popup__container {
+.popup__title,
+.popup__item {
   padding: 0 10px;
 }
 
-.popup__title__text,
-.popup__item__text {
+.form__container {
   margin: 0;
   text-align: left;
 }
@@ -245,7 +245,9 @@ button {
 }
 
 .popup__submit {
-  align-self: flex-end;
+  position: relative;
+  left: 530px;
+  width: 10%;
   background-color: var(--accent-color);
   font-size: var(--menu-size);
   font-weight: var(--semi-bold);

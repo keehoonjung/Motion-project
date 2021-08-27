@@ -1,9 +1,9 @@
 import { BaseComponent } from "../../base.js";
-import { TextData } from "../dialog.js";
+import { MediaData } from "../dialog.js";
 
-export class TextSectionInput
+export class MediaSectionInput
   extends BaseComponent<HTMLElement>
-  implements TextData
+  implements MediaData
 {
   constructor() {
     super(`
@@ -13,8 +13,8 @@ export class TextSectionInput
                   <input type="text" id="title" />
               </div>
             <div class="form__container">
-                <h2 class="popup__item__text">Body</h2>
-                <textarea type="text" row="3" id="body"></textarea>
+                <h2 class="popup__item__text">Url</h2>
+                <textarea type="text" id="url" rows="3" />
             </div>
           </div>
         `);
@@ -24,8 +24,8 @@ export class TextSectionInput
     return element.value;
   }
 
-  get body(): string {
-    const element = this.element.querySelector("#body")! as HTMLInputElement;
+  get url(): string {
+    const element = this.element.querySelector("#url")! as HTMLInputElement;
     return element.value;
   }
 }

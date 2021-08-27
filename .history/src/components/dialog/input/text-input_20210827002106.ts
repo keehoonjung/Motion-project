@@ -13,8 +13,8 @@ export class TextSectionInput
                   <input type="text" id="title" />
               </div>
             <div class="form__container">
-                <h2 class="popup__item__text">Body</h2>
-                <textarea type="text" row="3" id="body"></textarea>
+                <h2 class="popup__item__text">Url</h2>
+                <input type="text" id="body" />
             </div>
           </div>
         `);
